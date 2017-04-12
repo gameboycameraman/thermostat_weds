@@ -22,10 +22,10 @@ describe('Thermostat', function() {
   });
 
   it('has a minimum temperature of 10 degrees', function() {
-    for (var i = 1; i <11; i++) {
+    for (var i = 1; i <= 10; i++) {
       thermostat.down();
     };
-    expect(thermostat.down()).toThrowError("It's too cold man!");
+    expect(thermostat.down()).toThrowError(Error, "It's too cold man!");
   });
 
 });

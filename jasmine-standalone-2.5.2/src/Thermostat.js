@@ -13,8 +13,11 @@ function Thermostat(){
   };
 
   Thermostat.prototype.down = function () {
+    if (temperature > 10) {
     temperature = temperature - 1;
+    } else {
+      throw new Error("It's too cold man!");
+    }
   };
 
-  
 };
