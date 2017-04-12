@@ -11,10 +11,21 @@ describe('Thermostat', function() {
     expect(thermostat.temperature()).toEqual(20);
   });
 
-  it('can increase the temperature with an up function', function(){
+  it('can increase the temperature with an up function', function() {
     thermostat.up();
     expect(thermostat.temperature()).toBeGreaterThan(20);
   });
 
+  it('can decrease the temperature with a down function', function() {
+    thermostat.down();
+    expect(thermostat.temperature()).toBeLessThan(20);
+  });
+
+  it('has a minimum temperature of 10 degrees', function() {
+    for (var i = 1; i <11; i++) {
+      thermostat.down();
+    };
+    expect(thermostat.down()).toThrowError("It's too cold man!");
+  });
 
 });
