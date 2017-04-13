@@ -25,13 +25,9 @@ describe('Thermostat', function() {
     for (var i = 1; i <= 10; i++) {
       thermostat.down();
     };
-    console.log('should error now', thermostat.temperature())
-    try {
-      thermostat.down();
-    } catch(e) {
-      console.log('got the error', e);
-    }
-    // expect(thermostat.down()).toThrowError(Error, "It's too cold man!");
-  });
+
+    expect(function() {
+      thermostat.down()}).toThrowError("It's too cold man!");
+    });
 
 });
